@@ -18,6 +18,37 @@
   .card { background:#ffe6e9; padding:15px; border-radius:12px; margin-bottom:20px; text-align:left; }
   input[type=text] { padding:10px; border-radius:8px; border:1px solid #d6336c; width:80%; margin-bottom:10px; }
   label { display:block; margin:10px 0 5px; font-weight:bold; }
+
+  /* ESTILOS DEL MODAL */
+  #modal {
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    opacity:0;
+    visibility:hidden;
+    transition: opacity 0.5s ease;
+  }
+  #modal.show {
+    opacity:1;
+    visibility:visible;
+  }
+  #modal-content {
+    background:#fff0f5;
+    padding:20px;
+    border-radius:12px;
+    max-width:700px;
+    width:90%;
+    text-align:center;
+    position:relative;
+  }
+  #modal-content button {
+    margin-top:20px;
+  }
 </style>
 </head>
 <body>
@@ -33,7 +64,7 @@
 
 <!-- ===== 2. NUESTROS LUGARES ===== -->
 <section id="lugares">
-  <h2>Nuestros Lugares ❤️</h2>
+  <h2>Nuestros Lugares 🩶</h2>
   <div class="card">
     <h3>Donosti – Verano 2024</h3>
     <p>Primera escapada juntos. Momentos inolvidables.</p>
@@ -52,14 +83,21 @@
   <p>Introduce el código para ver nuestras fotos más especiales:</p>
   <input type="text" id="secret-code" placeholder="Introduce el código">
   <button onclick="unlockGallery()">Ver Galería</button>
-  <div id="secret-gallery" class="gallery hidden">
-    <!-- Fotos secretas -->
-    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0415.jpeg?raw=true" alt="Foto 1">
-    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0424.jpeg?raw=true" alt="Foto 2">
-    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0428.jpeg?raw=true" alt="Foto 3">
-  </div>
   <p id="code-msg" style="color:red; margin-top:10px;"></p>
 </section>
+
+<!-- MODAL DE GALERÍA -->
+<div id="modal">
+  <div id="modal-content">
+    <h2>Galería Secreta ❤️</h2>
+    <div class="gallery">
+      <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0415.jpeg?raw=true" alt="Foto 1">
+      <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0424.jpeg?raw=true" alt="Foto 2">
+      <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0428.jpeg?raw=true" alt="Foto 3">
+    </div>
+    <button onclick="closeModal()">Cerrar</button>
+  </div>
+</div>
 
 <!-- ===== 4. RETO DE PREGUNTAS → CÓDIGO VALE ===== -->
 <section id="reto-preguntas">
@@ -134,16 +172,19 @@
   }
   updatePhraseAndCountdown();
 
-  // GALERÍA SECRETA
+  // GALERÍA SECRETA - MODAL
   const SECRET = "2024LOVE";
   function unlockGallery(){
     const input = document.getElementById('secret-code').value.trim();
     if(input===SECRET){
-      document.getElementById('secret-gallery').classList.remove('hidden');
+      document.getElementById('modal').classList.add('show');
       document.getElementById('code-msg').textContent="¡Galería desbloqueada! ❤️";
     } else {
       document.getElementById('code-msg').textContent="Código incorrecto. Inténtalo de nuevo 😏";
     }
+  }
+  function closeModal(){
+    document.getElementById('modal').classList.remove('show');
   }
 
   // RETO DE PREGUNTAS
