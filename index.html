@@ -100,7 +100,7 @@
 <!-- ===== 3. GALERÍA SECRETA CON CÓDIGO ===== -->
 <section id="galeria-secreta">
   <h2>Galería Secreta 🔒</h2>
-  <p>Introduce el código para ver nuestras fotos más especiales:</p>
+  <p>Introduce el código para ver todas nuestras fotos:</p>
  <p>El codigo es el dia que empezamos a salir **/**/**</p>
   <input type="text" id="secret-code" placeholder="Introduce el código">
   <button onclick="unlockGallery()">Ver Galería</button>
@@ -125,12 +125,16 @@
   <h2>Reto de Preguntas 🧩</h2>
   <p>Responde todas correctamente y recibirás un código especial para tu vale sorpresa:</p>
   <div class="card">
-    <label>1️⃣ ¿Dónde fue nuestra primera cita?</label>
+    <label>1️⃣ ¿Que dia empezamos a salir?</label>
     <input type="text" id="q1" placeholder="Respuesta">
-    <label>2️⃣ ¿Cuál es mi comida favorita juntos?</label>
+    <label>2️⃣ ¿A que ciudad fuera de cataluña fuimos juntos por primera vez?</label>
     <input type="text" id="q2" placeholder="Respuesta">
-    <label>3️⃣ ¿Cuál fue nuestro primer viaje juntos?</label>
+    <label>3️⃣ ¿Que año empezamos hablar?</label>
     <input type="text" id="q3" placeholder="Respuesta">
+    <label>4️⃣¿De quien fue nuestro primer concierto juntos?</label>
+    <input type="text" id="q4" placeholder="Respuesta">
+    <label>5️⃣¿Que dia llegamos al pueblo?</label>
+    <input type="text" id="q5" placeholder="Respuesta">
     <button onclick="checkAnswers()">Comprobar</button>
   </div>
   <p id="vale-code-msg" style="color:green; font-weight:bold; margin-top:10px;"></p>
@@ -175,9 +179,11 @@
 
   // RETO DE PREGUNTAS
   const answers = {
-    q1:"parque",
-    q2:"pizza",
-    q3:"donosti"
+    q1:"21",
+    q2:"Sevilla",
+    q3:"2023"
+    q4:"Duki"
+    q5:"23"
   };
   const VALE_CODE = "AMOR23";
   function checkAnswers(){
@@ -185,9 +191,9 @@
     const r2 = document.getElementById('q2').value.trim().toLowerCase();
     const r3 = document.getElementById('q3').value.trim().toLowerCase();
     if(r1===answers.q1 && r2===answers.q2 && r3===answers.q3){
-      document.getElementById('vale-code-msg').textContent=`¡Correcto! Tu código es: ${VALE_CODE}`;
+      document.getElementById('vale-code-msg').textContent=`¡Correcto! Tu código es: ${21S23D23}`;
     } else {
-      document.getElementById('vale-code-msg').textContent="Alguna respuesta es incorrecta 😏. Intenta de nuevo.";
+      document.getElementById('vale-code-msg').textContent="Te has equivocado en algo (no se como). Intenta de nuevo.";
     }
   }
 
@@ -197,7 +203,7 @@
     if(code===VALE_CODE){
       document.getElementById('vale-msg').classList.remove('hidden');
     } else {
-      alert("Código incorrecto. Inténtalo de nuevo 😏");
+      alert("Es facil de memorizar y te equivocas");
     }
   }
 </script>
