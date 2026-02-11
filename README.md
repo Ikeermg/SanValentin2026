@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Valentín 2026</title>
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; font-family:'Arial', sans-serif; }
+  body { background-color:#fff0f5; color:#333; text-align:center; padding:20px; }
+  h1,h2 { color:#d6336c; margin-bottom:20px; }
+  section { padding:50px 20px; max-width:800px; margin:auto; }
+  button { padding:10px 20px; border:none; border-radius:8px; background:#d6336c; color:white; font-size:1em; cursor:pointer; margin:10px; }
+  button:hover { background:#b52b5c; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:15px; margin-top:20px; }
+  .gallery img { width:100%; border-radius:12px; transition: transform 0.3s; cursor:pointer; }
+  .gallery img:hover { transform:scale(1.05); }
+  .hidden { display:none; }
+  .card { background:#ffe6e9; padding:15px; border-radius:12px; margin-bottom:20px; text-align:left; }
+  input[type=text] { padding:10px; border-radius:8px; border:1px solid #d6336c; width:80%; margin-bottom:10px; }
+  label { display:block; margin:10px 0 5px; font-weight:bold; }
+</style>
+</head>
+<body>
+
+<!-- ===== 1. INICIO ===== -->
+<section id="inicio">
+  <h1>Feliz San Valentín Blanca ❤️</h1>
+  <img id="logo" src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_8927.jpeg?raw=true" alt="Logo" style="max-width:150px; margin-bottom:20px;">
+  <div id="header">Iker🩶Blanca | <span id="counter">0 días</span></div>
+  <div id="daily-phrase" style="background:#ffe6e9; padding:15px; border-radius:8px; font-size:1.5em; margin-top:20px;">Aquí aparecerá la frase diaria.</div>
+  <div id="countdown" style="background:#f8d7da; padding:10px; border-radius:8px; font-size:1.2em; color:#d6336c; margin-top:10px;">Siguiente frase: 00:00:00</div>
+</section>
+
+<!-- ===== 2. NUESTROS LUGARES ===== -->
+<section id="lugares">
+  <h2>Nuestros Lugares ❤️</h2>
+  <div class="card">
+    <h3>Donosti – Verano 2024</h3>
+    <p>Primera escapada juntos. Momentos inolvidables.</p>
+    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_8927.jpeg?raw=true" alt="Donosti" style="width:100%; border-radius:12px;">
+  </div>
+  <div class="card">
+    <h3>París – Invierno 2024</h3>
+    <p>Primer viaje romántico fuera. Recuerdos mágicos.</p>
+    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0604.jpeg?raw=true" alt="París" style="width:100%; border-radius:12px;">
+  </div>
+</section>
+
+<!-- ===== 3. GALERÍA SECRETA CON CÓDIGO ===== -->
+<section id="galeria-secreta">
+  <h2>Galería Secreta 🔒</h2>
+  <p>Introduce el código para ver nuestras fotos más especiales:</p>
+  <input type="text" id="secret-code" placeholder="Introduce el código">
+  <button onclick="unlockGallery()">Ver Galería</button>
+  <div id="secret-gallery" class="gallery hidden">
+    <!-- Fotos secretas -->
+    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0415.jpeg?raw=true" alt="Foto 1">
+    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0424.jpeg?raw=true" alt="Foto 2">
+    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0428.jpeg?raw=true" alt="Foto 3">
+  </div>
+  <p id="code-msg" style="color:red; margin-top:10px;"></p>
+</section>
+
+<!-- ===== 4. RETO DE PREGUNTAS → CÓDIGO VALE ===== -->
+<section id="reto-preguntas">
+  <h2>Reto de Preguntas 🧩</h2>
+  <p>Responde todas correctamente y recibirás un código especial para tu vale sorpresa:</p>
+  <div class="card">
+    <label>1️⃣ ¿Dónde fue nuestra primera cita?</label>
+    <input type="text" id="q1" placeholder="Respuesta">
+    <label>2️⃣ ¿Cuál es mi comida favorita juntos?</label>
+    <input type="text" id="q2" placeholder="Respuesta">
+    <label>3️⃣ ¿Cuál fue nuestro primer viaje juntos?</label>
+    <input type="text" id="q3" placeholder="Respuesta">
+    <button onclick="checkAnswers()">Comprobar</button>
+  </div>
+  <p id="vale-code-msg" style="color:green; font-weight:bold; margin-top:10px;"></p>
+</section>
+
+<!-- ===== 5. SORPRESA FINAL / VALE ===== -->
+<section id="sorpresa">
+  <h2>Sorpresa Final 🎁</h2>
+  <p>Introduce tu código secreto del reto para desbloquear tu vale:</p>
+  <input type="text" id="final-code" placeholder="Código del reto">
+  <button onclick="showVale()">Ver Vale</button>
+  <div id="vale-msg" class="hidden" style="margin-top:20px; font-size:1.5em; color:#d6336c;">
+    🎉 ¡Felicidades! Aquí está tu vale: Cena romántica y película juntos ❤️
+  </div>
+</section>
+
+<!-- ===== SCRIPT ===== -->
+<script>
+  // Contador de días
+  function updateDayCounter() {
+    const startDate = new Date("2024-08-21T00:00:00");
+    const now = new Date();
+    const diffDays = Math.floor((now - startDate)/(1000*60*60*24));
+    document.getElementById('counter').textContent = `${diffDays} días`;
+    const nextMidnight = new Date();
+    nextMidnight.setHours(24,0,0,0);
+    setTimeout(updateDayCounter, nextMidnight - now);
+  }
+  updateDayCounter();
+
+  // Frases diarias
+  const phrases = [
+    "El amor verdadero no tiene final.",
+    "El corazón que ama siempre es joven.",
+    "Eres mi sueño hecho realidad.",
+    "Cada día a tu lado es un regalo.",
+    "Tu amor ilumina mis días.",
+  ];
+  function updatePhraseAndCountdown() {
+    const now = new Date();
+    const next6AM = new Date();
+    next6AM.setHours(6,0,0,0);
+    if(now>=next6AM) next6AM.setDate(next6AM.getDate()+1);
+    const remaining = next6AM - now;
+    let used = JSON.parse(localStorage.getItem('usedPhrases'))||[];
+    if(used.length===phrases.length) used=[];
+    let available = phrases.filter(p=>!used.includes(p));
+    const today = available[Math.floor(Math.random()*available.length)];
+    used.push(today);
+    localStorage.setItem('usedPhrases', JSON.stringify(used));
+    document.getElementById('daily-phrase').textContent=today;
+    updateCountdown(remaining);
+  }
+  function updateCountdown(time){
+    const h = String(Math.floor((time/(1000*60*60))%24)).padStart(2,'0');
+    const m = String(Math.floor((time/(1000*60))%60)).padStart(2,'0');
+    const s = String(Math.floor((time/1000)%60)).padStart(2,'0');
+    document.getElementById('countdown').textContent=`Siguiente frase: ${h}:${m}:${s}`;
+    setTimeout(()=>{updateCountdown(time-1000)},1000);
+  }
+  updatePhraseAndCountdown();
+
+  // GALERÍA SECRETA
+  const SECRET = "2024LOVE";
+  function unlockGallery(){
+    const input = document.getElementById('secret-code').value.trim();
+    if(input===SECRET){
+      document.getElementById('secret-gallery').classList.remove('hidden');
+      document.getElementById('code-msg').textContent="¡Galería desbloqueada! ❤️";
+    } else {
+      document.getElementById('code-msg').textContent="Código incorrecto. Inténtalo de nuevo 😏";
+    }
+  }
+
+  // RETO DE PREGUNTAS
+  const answers = {
+    q1:"parque",
+    q2:"pizza",
+    q3:"donosti"
+  };
+  const VALE_CODE = "AMOR23";
+  function checkAnswers(){
+    const r1 = document.getElementById('q1').value.trim().toLowerCase();
+    const r2 = document.getElementById('q2').value.trim().toLowerCase();
+    const r3 = document.getElementById('q3').value.trim().toLowerCase();
+    if(r1===answers.q1 && r2===answers.q2 && r3===answers.q3){
+      document.getElementById('vale-code-msg').textContent=`¡Correcto! Tu código es: ${VALE_CODE}`;
+    } else {
+      document.getElementById('vale-code-msg').textContent="Alguna respuesta es incorrecta 😏. Intenta de nuevo.";
+    }
+  }
+
+  // SORPRESA FINAL / VALE
+  function showVale(){
+    const code = document.getElementById('final-code').value.trim();
+    if(code===VALE_CODE){
+      document.getElementById('vale-msg').classList.remove('hidden');
+    } else {
+      alert("Código incorrecto. Inténtalo de nuevo 😏");
+    }
+  }
+</script>
+</body>
+</html>
