@@ -12,14 +12,14 @@
   button { padding:10px 20px; border:none; border-radius:8px; background:#d6336c; color:white; font-size:1em; cursor:pointer; margin:10px; }
   button:hover { background:#b52b5c; }
   .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:15px; margin-top:20px; }
-  .gallery img { width:100%; border-radius:12px; transition: transform 0.3s; cursor:pointer; }
+  .gallery img { width:100%; max-width:100%; border-radius:12px; transition: transform 0.3s; cursor:pointer; }
   .gallery img:hover { transform:scale(1.05); }
   .hidden { display:none; }
   .card { background:#ffe6e9; padding:15px; border-radius:12px; margin-bottom:20px; text-align:left; }
   input[type=text] { padding:10px; border-radius:8px; border:1px solid #d6336c; width:80%; margin-bottom:10px; }
   label { display:block; margin:10px 0 5px; font-weight:bold; }
 
-  /* ESTILOS DEL MODAL */
+  /* MODAL RESPONSIVO */
   #modal {
     position:fixed;
     top:0; left:0;
@@ -32,6 +32,8 @@
     opacity:0;
     visibility:hidden;
     transition: opacity 0.5s ease;
+    overflow:auto; /* Permite scroll en móviles */
+    padding:20px;
   }
   #modal.show {
     opacity:1;
@@ -42,7 +44,9 @@
     padding:20px;
     border-radius:12px;
     max-width:700px;
-    width:90%;
+    width:100%;
+    max-height:90vh; /* No ocupa toda la pantalla en móviles */
+    overflow:auto; /* Scroll interno si es necesario */
     text-align:center;
     position:relative;
   }
