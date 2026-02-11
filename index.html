@@ -144,7 +144,7 @@
   <input type="text" id="final-code" placeholder="Código del reto">
   <button onclick="showVale()">Ver Vale</button>
   <div id="vale-msg" class="hidden" style="margin-top:20px; font-size:1.5em; color:#d6336c;">
-    🎉 ¡Felicidades! Aquí está tu vale: Cena romántica y película juntos 
+    Has conseguido tu vale:Pijama de ratatouille o algo que quieras.
   </div>
 </section>
 
@@ -178,7 +178,7 @@
   const answers = {
     q1:"21",
     q2:"sevilla",
-    q3:"23",
+    q3:"2023",
     q4:"duki",
     q5:"23"
   };
@@ -192,7 +192,7 @@
     if(r1===answers.q1 && r2===answers.q2 && r3===answers.q3 && r4===answers.q4 && r5===answers.q5){
       document.getElementById('vale-code-msg').textContent=`¡Correcto! Tu código es: ${VALE_CODE}`;
     } else {
-      document.getElementById('vale-code-msg').textContent="Alguna respuesta es incorrecta 😏. Intenta de nuevo.";
+      document.getElementById('vale-code-msg').textContent="Te has equivocado en alguna?? no te entiendo.";
     }
   }
 
@@ -202,7 +202,7 @@
     if(code===VALE_CODE){
       document.getElementById('vale-msg').classList.remove('hidden');
     } else {
-      alert("Código incorrecto. Inténtalo de nuevo 😏");
+      alert("Código incorrecto. Solo lo tienes que copiar eh");
     }
   }
 </script>
