@@ -50,28 +50,24 @@
     text-align:center;
     position:relative;
   }
-  #modal-content button {
-    margin-top:20px;
-  }
+  #modal-content button { margin-top:20px; }
 </style>
 </head>
 <body>
 
-<!-- ===== 1. INICIO ===== -->
+<!-- INICIO -->
 <section id="inicio">
   <h1>Feliz San Valentín Blanca 🩶</h1>
   <img id="logo" src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_8927.jpeg?raw=true" alt="Logo" style="max-width:150px; margin-bottom:20px;">
   
-  <!-- Contador de días juntos -->
   <div id="header">Iker🩶Blanca | <span id="counter">0 días juntos</span></div>
   
-  <!-- TEXTO FIJO -->
   <div id="fixed-text" style="background:#ffe6e9; padding:15px; border-radius:8px; font-size:1.5em; margin-top:20px;">
     Te quiero mucho mi cariñet🩶
   </div>
 </section>
 
-<!-- ===== 2. NUESTROS LUGARES ===== -->
+<!-- LUGARES -->
 <section id="lugares">
   <h2>Nuestros Lugares 🩶</h2>
   <div class="card">
@@ -84,30 +80,29 @@
     <p>Primer viaje de verano con tus padres.</p>
     <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_3883.jpeg?raw=true" alt="Segovia y Salamanca" style="width:100%; border-radius:12px;">
   </div>
-  <div class="card">
-    <h3>Sevilla - Verano 2025</h3>
-    <p>Primer viaje con trayecto largo.</p>
-    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_2178.jpeg?raw=true" alt="Segovia y Salamanca" style="width:100%; border-radius:12px;">
-  </div>
-  <div class="card">
-    <h3>L'Escala - Verano 2025</h3>
-    <p>Viaje a la playa con mi familia.</p>
-    <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/71a59c10-7cac-4927-aaf6-2939d248c7f1.jpeg?raw=true" alt="Segovia y Salamanca" style="width:100%; border-radius:12px;">
-  </div>
- 
+ <div class="card"> 
+  <h3>Sevilla - Verano 2025</h3> 
+  <p>Primer viaje con trayecto largo.</p>
+  <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_2178.jpeg?raw=true" alt="Segovia y Salamanca" style="width:100%; border-radius:12px;"> 
+ </div>
+ <div class="card">
+  <h3>Sevilla - Verano 2025</h3> 
+  <p>Primer viaje con trayecto largo.</p>
+  <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_2178.jpeg?raw=true" alt="Segovia y Salamanca" style="width:100%; border-radius:12px;"> 
+ </div>
 </section>
 
-<!-- ===== 3. GALERÍA SECRETA CON CÓDIGO ===== -->
+<!-- GALERÍA SECRETA -->
 <section id="galeria-secreta">
   <h2>Galería Secreta 🔒</h2>
   <p>Introduce el código para ver todas nuestras fotos:</p>
- <p>El codigo es el dia que empezamos a salir **/**/**</p>
+  <p>El código es el día que empezamos a salir (**/**/**)</p>
   <input type="text" id="secret-code" placeholder="Introduce el código">
   <button onclick="unlockGallery()">Ver Galería</button>
   <p id="code-msg" style="color:red; margin-top:10px;"></p>
 </section>
 
-<!-- MODAL DE GALERÍA -->
+<!-- MODAL -->
 <div id="modal">
   <div id="modal-content">
     <h2>Galería Secreta 🩶</h2>
@@ -120,49 +115,46 @@
   </div>
 </div>
 
-<!-- ===== 4. RETO DE PREGUNTAS → CÓDIGO VALE ===== -->
+<!-- RETO -->
 <section id="reto-preguntas">
   <h2>Reto de Preguntas 🧩</h2>
-  <p>Responde todas correctamente y recibirás un código especial para tu vale sorpresa:</p>
   <div class="card">
-    <label>1️⃣ ¿Que dia empezamos a salir?</label>
+    <label>1️⃣ ¿Qué día empezamos a salir?</label>
     <input type="text" id="q1" placeholder="Respuesta">
-    <label>2️⃣ ¿A que ciudad fuera de cataluña fuimos juntos por primera vez?</label>
+    <label>2️⃣ ¿A qué ciudad fuera de Cataluña fuimos juntos por primera vez?</label>
     <input type="text" id="q2" placeholder="Respuesta">
-    <label>3️⃣ ¿Que año empezamos hablar?</label>
+    <label>3️⃣ ¿Qué año empezamos a hablar?</label>
     <input type="text" id="q3" placeholder="Respuesta">
-    <label>4️⃣¿De quien fue nuestro primer concierto juntos?</label>
+    <label>4️⃣ ¿De quién fue nuestro primer concierto juntos?</label>
     <input type="text" id="q4" placeholder="Respuesta">
-    <label>5️⃣¿Que dia llegamos al pueblo?</label>
+    <label>5️⃣ ¿Qué día llegamos al pueblo?</label>
     <input type="text" id="q5" placeholder="Respuesta">
     <button onclick="checkAnswers()">Comprobar</button>
   </div>
   <p id="vale-code-msg" style="color:green; font-weight:bold; margin-top:10px;"></p>
 </section>
 
-<!-- ===== 5. SORPRESA FINAL / VALE ===== -->
+<!-- VALE -->
 <section id="sorpresa">
   <h2>Sorpresa Final 🎁</h2>
-  <p>Introduce tu código secreto del reto para desbloquear tu vale:</p>
   <input type="text" id="final-code" placeholder="Código del reto">
   <button onclick="showVale()">Ver Vale</button>
   <div id="vale-msg" class="hidden" style="margin-top:20px; font-size:1.5em; color:#d6336c;">
-    🎉 ¡Felicidades! Aquí está tu vale: Cena romántica y película juntos 
+    🎉 ¡Felicidades! Aquí está tu vale: Cena romántica y película juntos ❤️
   </div>
 </section>
 
-<!-- ===== SCRIPT ===== -->
 <script>
-  // CONTADOR DE DÍAS JUNTOS
+  // Contador de días
   function updateDayCounter() {
-    const startDate = new Date("2024-08-21T00:00:00"); // Cambia a vuestra primera cita
+    const startDate = new Date("2024-08-21T00:00:00"); 
     const now = new Date();
     const diffDays = Math.floor((now - startDate)/(1000*60*60*24));
     document.getElementById('counter').textContent = `${diffDays} días juntos`;
   }
   updateDayCounter();
 
-  // GALERÍA SECRETA - MODAL
+  // Galería modal
   const SECRET = "21/08/24";
   function unlockGallery(){
     const input = document.getElementById('secret-code').value.trim();
@@ -170,43 +162,46 @@
       document.getElementById('modal').classList.add('show');
       document.getElementById('code-msg').textContent="¡Galería desbloqueada! 🩶";
     } else {
-      document.getElementById('code-msg').textContent="Enserio no te acuerdas?";
+      document.getElementById('code-msg').textContent="¿En serio no te acuerdas?";
     }
   }
   function closeModal(){
     document.getElementById('modal').classList.remove('show');
   }
 
-  // RETO DE PREGUNTAS
+  // Reto preguntas
   const answers = {
     q1:"21",
-    q2:"Sevilla",
-    q3:"2023"
-    q4:"Duki"
+    q2:"sevilla",
+    q3:"2023",
+    q4:"duki",
     q5:"23"
   };
-  const VALE_CODE = "AMOR23";
+  const VALE_CODE = "21S23D23";
   function checkAnswers(){
     const r1 = document.getElementById('q1').value.trim().toLowerCase();
     const r2 = document.getElementById('q2').value.trim().toLowerCase();
     const r3 = document.getElementById('q3').value.trim().toLowerCase();
-    if(r1===answers.q1 && r2===answers.q2 && r3===answers.q3){
+    const r4 = document.getElementById('q4').value.trim().toLowerCase();
+    const r5 = document.getElementById('q5').value.trim().toLowerCase();
+    if(r1===answers.q1 && r2===answers.q2 && r3===answers.q3 && r4===answers.q4 && r5===answers.q5){
       document.getElementById('vale-code-msg').textContent=`¡Correcto! Tu código es: ${21S23D23}`;
     } else {
-      document.getElementById('vale-code-msg').textContent="Te has equivocado en algo (no se como). Intenta de nuevo.";
+      document.getElementById('vale-code-msg').textContent="has fallado alguna no se como";
     }
   }
 
-  // SORPRESA FINAL / VALE
+  // Vale final
   function showVale(){
     const code = document.getElementById('final-code').value.trim();
     if(code===VALE_CODE){
       document.getElementById('vale-msg').classList.remove('hidden');
     } else {
-      alert("Es facil de memorizar y te equivocas");
+      alert("No te acuerdas?");
     }
   }
 </script>
+
 </body>
 </html>
 
