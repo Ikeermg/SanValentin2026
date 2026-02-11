@@ -32,7 +32,7 @@
     opacity:0;
     visibility:hidden;
     transition: opacity 0.5s ease;
-    overflow:auto; /* Permite scroll en móviles */
+    overflow:auto;
     padding:20px;
   }
   #modal.show {
@@ -45,8 +45,8 @@
     border-radius:12px;
     max-width:700px;
     width:100%;
-    max-height:90vh; /* No ocupa toda la pantalla en móviles */
-    overflow:auto; /* Scroll interno si es necesario */
+    max-height:90vh;
+    overflow:auto;
     text-align:center;
     position:relative;
   }
@@ -61,9 +61,12 @@
 <section id="inicio">
   <h1>Feliz San Valentín Blanca ❤️</h1>
   <img id="logo" src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_8927.jpeg?raw=true" alt="Logo" style="max-width:150px; margin-bottom:20px;">
-  <div id="header">Iker🩶Blanca | <span id="counter">0 días</span></div>
-  <div id="daily-phrase" style="background:#ffe6e9; padding:15px; border-radius:8px; font-size:1.5em; margin-top:20px;">Aquí aparecerá la frase diaria.</div>
-  <div id="countdown" style="background:#f8d7da; padding:10px; border-radius:8px; font-size:1.2em; color:#d6336c; margin-top:10px;">Siguiente frase: 00:00:00</div>
+  <div id="header">Iker🩶Blanca | 0 días juntos</div>
+  
+  <!-- TEXTO FIJO -->
+  <div id="fixed-text" style="background:#ffe6e9; padding:15px; border-radius:8px; font-size:1.5em; margin-top:20px;">
+    Aquí va tu mensaje especial que quieras poner ❤️
+  </div>
 </section>
 
 <!-- ===== 2. NUESTROS LUGARES ===== -->
@@ -132,50 +135,6 @@
 
 <!-- ===== SCRIPT ===== -->
 <script>
-  // Contador de días
-  function updateDayCounter() {
-    const startDate = new Date("2024-08-21T00:00:00");
-    const now = new Date();
-    const diffDays = Math.floor((now - startDate)/(1000*60*60*24));
-    document.getElementById('counter').textContent = `${diffDays} días`;
-    const nextMidnight = new Date();
-    nextMidnight.setHours(24,0,0,0);
-    setTimeout(updateDayCounter, nextMidnight - now);
-  }
-  updateDayCounter();
-
-  // Frases diarias
-  const phrases = [
-    "El amor verdadero no tiene final.",
-    "El corazón que ama siempre es joven.",
-    "Eres mi sueño hecho realidad.",
-    "Cada día a tu lado es un regalo.",
-    "Tu amor ilumina mis días.",
-  ];
-  function updatePhraseAndCountdown() {
-    const now = new Date();
-    const next6AM = new Date();
-    next6AM.setHours(6,0,0,0);
-    if(now>=next6AM) next6AM.setDate(next6AM.getDate()+1);
-    const remaining = next6AM - now;
-    let used = JSON.parse(localStorage.getItem('usedPhrases'))||[];
-    if(used.length===phrases.length) used=[];
-    let available = phrases.filter(p=>!used.includes(p));
-    const today = available[Math.floor(Math.random()*available.length)];
-    used.push(today);
-    localStorage.setItem('usedPhrases', JSON.stringify(used));
-    document.getElementById('daily-phrase').textContent=today;
-    updateCountdown(remaining);
-  }
-  function updateCountdown(time){
-    const h = String(Math.floor((time/(1000*60*60))%24)).padStart(2,'0');
-    const m = String(Math.floor((time/(1000*60))%60)).padStart(2,'0');
-    const s = String(Math.floor((time/1000)%60)).padStart(2,'0');
-    document.getElementById('countdown').textContent=`Siguiente frase: ${h}:${m}:${s}`;
-    setTimeout(()=>{updateCountdown(time-1000)},1000);
-  }
-  updatePhraseAndCountdown();
-
   // GALERÍA SECRETA - MODAL
   const SECRET = "2024LOVE";
   function unlockGallery(){
@@ -221,3 +180,4 @@
 </script>
 </body>
 </html>
+
