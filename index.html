@@ -67,7 +67,7 @@
   
   <!-- TEXTO FIJO -->
   <div id="fixed-text" style="background:#ffe6e9; padding:15px; border-radius:8px; font-size:1.5em; margin-top:20px;">
-    Aquí va tu mensaje especial que quieras poner ❤️
+    Te quiero mucho mi cariñet🩶
   </div>
 </section>
 
@@ -75,13 +75,13 @@
 <section id="lugares">
   <h2>Nuestros Lugares 🩶</h2>
   <div class="card">
-    <h3>Donosti – Verano 2024</h3>
-    <p>Primera escapada juntos. Momentos inolvidables.</p>
+    <h3>Valdepeñas de Jaen - Verano 2025</h3>
+    <p>Primer viaje al pueblo.</p>
     <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_8927.jpeg?raw=true" alt="Donosti" style="width:100%; border-radius:12px;">
   </div>
   <div class="card">
-    <h3>París – Invierno 2024</h3>
-    <p>Primer viaje romántico fuera. Recuerdos mágicos.</p>
+    <h3>Segovia y Salamanca - Verano 2025</h3>
+    <p>Primer viaje de verano con tus padres.</p>
     <img src="https://github.com/Ikeermg/SanValentin2025/blob/main/IMG_0604.jpeg?raw=true" alt="París" style="width:100%; border-radius:12px;">
   </div>
 </section>
@@ -90,6 +90,7 @@
 <section id="galeria-secreta">
   <h2>Galería Secreta 🔒</h2>
   <p>Introduce el código para ver nuestras fotos más especiales:</p>
+ <p>El codigo es el dia que empezamos a salir **/**/**</p>
   <input type="text" id="secret-code" placeholder="Introduce el código">
   <button onclick="unlockGallery()">Ver Galería</button>
   <p id="code-msg" style="color:red; margin-top:10px;"></p>
@@ -147,14 +148,14 @@
   updateDayCounter();
 
   // GALERÍA SECRETA - MODAL
-  const SECRET = "2024LOVE";
+  const SECRET = "21/08/24";
   function unlockGallery(){
     const input = document.getElementById('secret-code').value.trim();
     if(input===SECRET){
       document.getElementById('modal').classList.add('show');
-      document.getElementById('code-msg').textContent="¡Galería desbloqueada! ❤️";
+      document.getElementById('code-msg').textContent="¡Galería desbloqueada! 🩶";
     } else {
-      document.getElementById('code-msg').textContent="Código incorrecto. Inténtalo de nuevo 😏";
+      document.getElementById('code-msg').textContent="Enserio no te acuerdas?";
     }
   }
   function closeModal(){
